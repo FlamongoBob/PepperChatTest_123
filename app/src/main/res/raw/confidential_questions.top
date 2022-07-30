@@ -1,0 +1,8 @@
+topic: ~confidental_questions()
+# Defining extra concepts out of words or group of words
+#concept:(hello) [hello hi hey "good morning" greetings]
+
+# Replying to speech
+#u:(~hello) ~hello
+u:(do you hav questions) I need to ask you question?
+u1:(ok) this and that

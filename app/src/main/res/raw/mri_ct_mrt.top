@@ -1,0 +1,9 @@
+topic: ~mri_ct_mrt()
+# Defining extra concepts out of words or group of words
+concept:(mrt) [hello hi hey "good morning" greetings]
+concept:(mri) [hello hi hey "good morning" greetings]
+concept:(CT) [hello hi hey "good morning" greetings]
+
+# Replying to speech
+#u:(~hello) ~hello
+u:(what is an mrt) mrt is a machine

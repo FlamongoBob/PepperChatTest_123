@@ -1,0 +1,19 @@
+topic: ~hello()
+# Defining extra concepts out of words or group of words
+concept:(hello) [hello hi hey "good morning" greetings "good evening" "good afternoon"]
+concept:(want) [desire]
+
+
+proposal:%start Say Hello to start the disussion
+# Replying to speech
+#u:(~hello) ~hello
+
+u:(~hello) hello it is nice to meet you
+
+u:(my name is _*) nice to meet you $name=$1
+u:(I am _*)  dgdg
+
+proposal:%chicken Say Hello to start the disussion
+
+
+proposal:%start Say Hello to start the disussion
