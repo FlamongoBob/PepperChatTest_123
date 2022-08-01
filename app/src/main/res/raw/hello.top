@@ -8,7 +8,7 @@ proposal:%start Say Hello to start the disussion
 # Replying to speech
 #u:(~hello) ~hello
 
-u:(~hello) hello it is nice to meet you
+u:(~hello) hello it is nice to meet you ^execute(executeWave)
 
 u:(my name is _*) nice to meet you $name=$1
 u:(I am _*)  dgdg

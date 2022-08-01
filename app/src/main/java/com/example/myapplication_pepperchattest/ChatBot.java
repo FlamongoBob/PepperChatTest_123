@@ -14,9 +14,14 @@ import com.aldebaran.qi.sdk.object.conversation.AutonomousReactionImportance;
 import com.aldebaran.qi.sdk.object.conversation.AutonomousReactionValidity;
 import com.aldebaran.qi.sdk.object.conversation.Bookmark;
 import com.aldebaran.qi.sdk.object.conversation.Chat;
+import com.aldebaran.qi.sdk.object.conversation.QiChatExecutor;
 import com.aldebaran.qi.sdk.object.conversation.QiChatbot;
 import com.aldebaran.qi.sdk.object.conversation.Topic;
 import com.aldebaran.qi.sdk.object.locale.Locale;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ChatBot {
     private QiContext qiContext;
@@ -62,6 +67,7 @@ public class ChatBot {
                 this.topic1 = TopicBuilder
                         .with(qiContext)
                         .withAsset(strTopic_Greeting)
+                        .withResource(R.raw.hello__goodbye)
                         .build();
 
                 this.topic2 = TopicBuilder
@@ -89,7 +95,36 @@ public class ChatBot {
                             .withTopic(topic1)
                             .withLocale(locale)
                             .build();
+                    Map<String, QiChatExecutor> executors = new HashMap<>();
+                    executors.put("executorWave", new QiChatExecutor() {
 
+
+                        @Override
+                        public Async async() {
+                            return null;
+                        }
+
+                        @Override
+                        public void runWith(List<String> params) {
+
+                        }
+
+                        @Override
+                        public void stop() {
+
+                        }
+
+                        public int getResourceId(AnimationType eAnimationType) {
+
+                            switch (eAnimationType) {
+                                case helloGoodbyeWave:
+                                    return R.raw.hello__goodbye;
+                                default:
+                                    return 0;
+                            }
+                        }
+                    })
+                    qiChatbot1.setExecutors(executors);
 
                     this.qiChatbot2 = QiChatbotBuilder
                             .with(qiContext)
@@ -162,73 +197,6 @@ public class ChatBot {
     }
 
 
-    public QiContext getQiContext() {
-        return qiContext;
-    }
-
-    public Chat getChat() {
-        return chat;
-    }
-
-    public Topic getTopic1() {
-        return topic1;
-    }
-
-    public Topic getTopic2() {
-        return topic2;
-    }
-
-    public Topic getTopic3() {
-        return topic3;
-    }
-
-    public Topic getTopic4() {
-        return topic4;
-    }
-
-    public QiChatbot getQiChatbot1() {
-        return qiChatbot1;
-    }
-
-    public QiChatbot getQiChatbot2() {
-        return qiChatbot2;
-    }
-
-    public QiChatbot getQiChatbot3() {
-        return qiChatbot3;
-    }
-
-    public QiChatbot getQiChatbot4() {
-        return qiChatbot4;
-    }
-
-    public String getStrTopic_Greeting() {
-        return strTopic_Greeting;
-    }
-
-    public String getStrTopic_MRI_CT_MRT() {
-        return strTopic_MRI_CT_MRT;
-    }
-
-    public String getStrTopic_ConfidentialQuestions() {
-        return strTopic_ConfidentialQuestions;
-    }
-
-    public String getStrTopic_Goodbye() {
-        return strTopic_Goodbye;
-    }
-
-    public Locale getLocale() {
-        return locale;
-    }
-
-    public Enum getElanguage() {
-        return elanguage;
-    }
-
-    public boolean isListening() {
-        return isListening;
-    }
 }
 
 
